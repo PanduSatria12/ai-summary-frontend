@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Elegan AI | Smart Summarizer 1.0</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER ELEGAN -->
+        <div class="header">
+            <div class="header-badge">✦ AI-POWERED</div>
+            <h1>SMART NOTES SUMMARIZER 1.0</h1>
+            <p>Ringkas catatanmu dengan sentuhan kecerdasan elegan</p>
+        </div>
+
+        <!-- INPUT CARD -->
+        <div class="card">
+            <div class="card-header">
+                <span class="label-icon">📝</span>
+                <label for="noteInput">Catatan Kamu</label>
+            </div>
+            <textarea id="noteInput" placeholder="Tempel atau tulis catatanmu di sini..."></textarea>
+            <div class="char-counter">
+                <span id="charCount">0</span> karakter
+            </div>
+        </div>
+
+        <!-- MODE SELECTION CARD -->
+        <div class="card">
+            <div class="card-header">
+                <span class="label-icon">✨</span>
+                <span class="label">Pilih mode ringkasan</span>
+            </div>
+            <div class="mode-group">
+                <button class="mode-btn active" data-mode="ringkas">📄 Ringkas</button>
+                <button class="mode-btn" data-mode="poin">🎯 Poin Penting</button>
+                <button class="mode-btn" data-mode="eli5">💬 Bahasa Mudah</button>
+                <button class="mode-btn" data-mode="aksi">✅ Action Items</button>
+            </div>
+        </div>
+
+        <!-- ACTION BUTTON -->
+        <button id="runBtn">
+            <span class="btn-text">Ringkas Sekarang</span>
+            <span class="btn-glow"></span>
+        </button>
+
+        <!-- RESULT CARD -->
+        <div class="card result-card" id="resultCard">
+            <div class="card-header">
+                <span class="label-icon">🌟</span>
+                <span class="label">Hasil Ringkasan</span>
+            </div>
+            <div id="resultBox">
+                <div class="result-placeholder">✨ Ringkasan akan muncul di sini</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

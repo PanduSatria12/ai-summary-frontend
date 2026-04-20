@@ -1,0 +1,329 @@
+/* ───────────────────────────────────────────────────────────── */
+/* ELEGAN AI | SMART NOTES SUMMARIZER 1.0                        */
+/* refined, premium, glass-morphism aesthetic                   */
+/* ───────────────────────────────────────────────────────────── */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #f0f4fa 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    color: #1a2c3e;
+    position: relative;
+}
+
+/* subtle glass background texture */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 245, 0.4) 0%, rgba(220, 235, 255, 0.15) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* ── HEADER SECTION ── */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header-badge {
+    display: inline-block;
+    background: rgba(74, 144, 226, 0.12);
+    backdrop-filter: blur(4px);
+    padding: 0.25rem 1rem;
+    border-radius: 40px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #4a7db5;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #1a2c3e 0%, #2c4c6e 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.3px;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: #5a6e7c;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* ── CARD COMPONENT (glass elegance) ── */
+.card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 28px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s ease;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(74, 144, 226, 0.25);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.label-icon {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+label, .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6c7e8f;
+}
+
+/* ── TEXTAREA (refined) ── */
+textarea {
+    width: 100%;
+    min-height: 160px;
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: 'Inter', monospace;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    color: #1e2f3f;
+    resize: vertical;
+    transition: all 0.2s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #7cade6;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    background: #ffffff;
+}
+
+textarea::placeholder {
+    color: #b9c4cf;
+    font-weight: 400;
+}
+
+/* char counter */
+.char-counter {
+    text-align: right;
+    font-size: 0.7rem;
+    color: #8d9eae;
+    margin-top: 0.5rem;
+    font-weight: 450;
+}
+
+#charCount {
+    font-weight: 600;
+    color: #4a7db5;
+}
+
+/* ── MODE BUTTONS (pill style, elegant) ── */
+.mode-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.mode-btn {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #dce5ed;
+    border-radius: 60px;
+    background: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    color: #3b5568;
+    backdrop-filter: blur(2px);
+}
+
+.mode-btn:hover {
+    background: #ffffff;
+    border-color: #bdd4e8;
+    transform: translateY(-1px);
+}
+
+.mode-btn.active {
+    background: #4a90e2;
+    color: white;
+    border-color: #4a90e2;
+    box-shadow: 0 6px 12px rgba(74, 144, 226, 0.2);
+}
+
+/* ── RUN BUTTON (premium glossy) ── */
+#runBtn {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(105deg, #3b82dc 0%, #5c9cef 100%);
+    border: none;
+    border-radius: 44px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 6px 14px rgba(59, 130, 220, 0.25);
+}
+
+#runBtn .btn-text {
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.3px;
+}
+
+#runBtn .btn-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+#runBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(59, 130, 220, 0.35);
+    background: linear-gradient(105deg, #2e73d0 0%, #488be8 100%);
+}
+
+#runBtn:hover .btn-glow {
+    opacity: 1;
+}
+
+#runBtn:active {
+    transform: translateY(1px);
+}
+
+#runBtn:disabled {
+    background: #b0c4de;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ── RESULT BOX (elegant, subtle) ── */
+.result-card {
+    transition: all 0.3s ease;
+}
+
+#resultBox {
+    background: rgba(248, 250, 253, 0.8);
+    border-radius: 20px;
+    padding: 1.2rem 1.4rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #1f384d;
+    white-space: pre-wrap;
+    word-break: break-word;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    min-height: 100px;
+}
+
+.result-placeholder {
+    color: #9eb0c0;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* elegant fade-in animation for result */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-card.show {
+    animation: fadeSlideUp 0.35s ease forwards;
+}
+
+/* responsive adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 1.2rem;
+    }
+    
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .card {
+        padding: 1.2rem;
+        border-radius: 24px;
+    }
+    
+    .mode-btn {
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    textarea {
+        min-height: 130px;
+    }
+}
+
+/* scrollbar elegance */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eef2f7;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbdae6;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a7bbcf;
+}
