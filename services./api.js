@@ -1,5 +1,5 @@
 export async function streamSummarize({ text, systemPrompt, onChunk }) {
-  const response = await fetch('/api/chat', {
+  const response = await fetch('http://38.47.185.60:3000/api/chat', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -18,6 +18,6 @@ export async function streamSummarize({ text, systemPrompt, onChunk }) {
     if (done) break;
 
     const chunk = decoder.decode(value);
-    onChunk(chunk); // lempar ke UI
+    onChunk(chunk);
   }
 }
