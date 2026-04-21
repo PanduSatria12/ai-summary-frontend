@@ -43,23 +43,23 @@ async function runSummarize() {
   resultBox.textContent = '⏳ Sedang memproses...';
 
   try {
-    const response = await fetch('https://ai-summary-backend.onrender.com/api/chat', {
+    const response = await fetch('http://38.47.185.60:3000/api/chat', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         text,
         systemPrompt: prompts[selectedMode]
       })
     });
 
-    // cek status response
     if (!response.ok) {
       throw new Error('Server error');
     }
 
     const data = await response.json();
 
-    // fallback kalau kosong
     resultBox.textContent = data.result || 'Tidak ada hasil';
 
   } catch (err) {
